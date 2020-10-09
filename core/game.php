@@ -1,7 +1,7 @@
 <?php
 
 
-class Post
+class Game
 {
     //db config
     private $conn;
@@ -19,7 +19,7 @@ class Post
     }
 
     public function read(){
-        $query = 'SELECT id, name, price FROM '. $this->table. 'WHERE hide = 0';
+        $query = 'SELECT id, name, price FROM '. $this->table. 'WHERE hide <> 1';
         $statement = $this->conn->prepare($query);
         $statement->execute();
 
