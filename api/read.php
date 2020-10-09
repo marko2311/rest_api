@@ -16,14 +16,14 @@ if($num > 0){
 
     while($row = $result->fetch(PDO::FETCH_ASSOC)){
         extract($row);
-        $post_item = array(
-            'id'   => $id,
-            'name' => $name,
+        $game_item = array(
+            'id'    => $id,
+            'name'  => $name,
             'price' => $price
         );
         array_push($game_array['data'], $game_item);
     }
-    echo json_encode($post_array);
+    echo json_encode($game_array);
 } else {
-    echo json_encode('message' => 'No posts found');
+    echo json_encode(array('message' => 'No posts found'));
 }
