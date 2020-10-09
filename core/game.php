@@ -47,9 +47,8 @@ class Game
         $statement->bindParam(':price', $this->price);
 
         try {
-            if($statement->execute()){
+            if($statement->execute())
                 return true;
-            }
         } catch(PDOException $exception) {
             $error = $exception->errorInfo;
             if ($error[1] == 1062)
@@ -59,7 +58,31 @@ class Game
 
         echo json_encode(array('error' => 'error when trying to create new record'));
         return false;
+    }
 
+    public function update(){
+        $query = 'UPDATE '. $this->table .' 
+                SET name = :name, price = :price 
+                WHERE id=:id';
+
+        $this->name  = htmlspecialchars(strip_tags($this->name));
+        $this->price = htmlspecialchars(strip_tags($this->price));
+        $this->id = htmlspecialchars(strip_tags($this->id));
+        $statement = $this->conn->prepare($query);
+        $statement->bindParam(':name', $this->name);
+        $statement->bindParam(':price', $this->price);
+        $statement->bindParam(':id', $this->id);
+
+        try {
+            if($statement->execute())
+                return true;
+        } catch(PDOException $exception) {
+            $error = $exception->errorInfo;
+            if ($error[1] == 1062)
+                echo json_encode(array('error' => 'This name of game already exists.'));
+            echo json_encode(array('error' => $statement->errorInfo()));
+            die();
+        }
     }
 
 }
