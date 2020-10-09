@@ -18,4 +18,5 @@ if($game->create()){
     echo json_encode(array('message' => 'Post created'));
 } else {
     echo json_encode(array('error' => 'Post didn`t create'));
+    exit;
 }

@@ -46,9 +46,17 @@ class Game
         $statement->bindParam(':name', $this->name);
         $statement->bindParam(':price', $this->price);
 
-        if($statement->execute()){
-            return true;
+        try {
+            if($statement->execute()){
+                return true;
+            }
+        } catch(PDOException $exception) {
+            $error = $exception->errorInfo;
+            if ($error[1] == 1062)
+                echo json_encode(array('error' => 'This name of game already exists.'));
+            die();
         }
+
         echo json_encode(array('error' => 'error when trying to create new record'));
         return false;
 
