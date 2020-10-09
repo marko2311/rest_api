@@ -5,7 +5,8 @@ header('Content-Type: application/json');
 
 include_once('../core/init.php');
 
-$game = new Game($db);
+$requested_id = isset($_GET['id']) ? $_GET['id'] : 0;
+$game = new Game($db, $requested_id);
 
 $result = $game->read();
 $num = $result->rowCount();
@@ -25,5 +26,5 @@ if($num > 0){
     }
     echo json_encode($game_array);
 } else {
-    echo json_encode(array('message' => 'No posts found'));
+    echo json_encode(array('message' => 'No game found'));
 }
