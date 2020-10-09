@@ -17,13 +17,13 @@ class Game
     public function __construct(PDO $db, int $requested_id = 0)
     {
         $this->conn = $db;
-        $requested_id > 0 ? $this->game_id = $requested_id : null;
+        $requested_id > 0 ? $this->game_id = $requested_id : 0;
     }
 
     public function read(){
         if($this->game_id > 0){
             $query = 'SELECT id, name, price FROM '. $this->table. ' WHERE hide <> 1 AND id = '.addslashes($this->game_id);
-        } elseif($this->game_id === 0) {
+        } elseif($this->game_id == 0) {
             $query = 'SELECT id, name, price FROM '. $this->table. ' WHERE hide <> 1';
         } else {
             echo json_encode(array('error' => 'error in id field: wrong value'));
