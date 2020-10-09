@@ -6,7 +6,7 @@ class Game
     //db config
     private $conn;
     private $table = "games_list";
-    protected $game_id = 0;
+    protected $game_id;
 
     //game properties
     public $id;
@@ -18,7 +18,6 @@ class Game
     {
         $this->conn = $db;
         $requested_id > 0 ? $this->game_id = $requested_id : null;
-
     }
 
     public function read(){
@@ -27,6 +26,7 @@ class Game
         } elseif($this->game_id === 0) {
             $query = 'SELECT id, name, price FROM '. $this->table. ' WHERE hide <> 1';
         } else {
+            echo json_encode(array('error' => 'error in id field: wrong value'));
             die();
         }
 
@@ -34,6 +34,24 @@ class Game
         $statement->execute();
 
         return $statement;
+    }
+
+    public function create(){
+        $query = 'INSERT INTO '. $this->table .' SET name = :name, price = :price';
+
+        $this->name  = htmlspecialchars(strip_tags($this->name));
+        $this->price = htmlspecialchars(strip_tags($this->price));
+
+        $statement = $this->conn->prepare($query);
+        $statement->bindParam(':name', $this->name);
+        $statement->bindParam(':price', $this->price);
+
+        if($statement->execute()){
+            return true;
+        }
+        echo json_encode(array('error' => 'error when trying to create new record'));
+        return false;
+
     }
 
 }
