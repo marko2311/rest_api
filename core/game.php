@@ -22,9 +22,9 @@ class Game
 
     public function read(){
         if($this->game_id > 0){
-            $query = 'SELECT id, name, price FROM '. $this->table. ' WHERE hide <> 1 AND id = '.addslashes($this->game_id);
+            $query = 'SELECT id, name, price FROM '. $this->table. ' WHERE id = '.addslashes($this->game_id);
         } elseif($this->game_id == 0) {
-            $query = 'SELECT id, name, price FROM '. $this->table. ' WHERE hide <> 1';
+            $query = 'SELECT id, name, price FROM '. $this->table;
         } else {
             echo json_encode(array('error' => 'error in id field: wrong value'));
             die();
@@ -52,12 +52,10 @@ class Game
         } catch(PDOException $exception) {
             $error = $exception->errorInfo;
             if ($error[1] == 1062)
-                echo json_encode(array('error' => 'This name of game already exists.'));
+                echo json_encode(array('message' => 'This name of game already exists.'));
+            echo json_encode(array('error' => $statement->errorInfo()));
             die();
         }
-
-        echo json_encode(array('error' => 'error when trying to create new record'));
-        return false;
     }
 
     public function update(){
@@ -79,7 +77,25 @@ class Game
         } catch(PDOException $exception) {
             $error = $exception->errorInfo;
             if ($error[1] == 1062)
-                echo json_encode(array('error' => 'This name of game already exists.'));
+                echo json_encode(array('message' => 'This name of game already exists.'));
+            echo json_encode(array('error' => $statement->errorInfo()));
+            die();
+        }
+    }
+
+    public function delete(){
+        $query = 'DELETE FROM '. $this->table .'                  
+                WHERE id=:id';
+
+        $this->id = htmlspecialchars(strip_tags($this->id));
+        $statement = $this->conn->prepare($query);
+        $statement->bindParam(':id', $this->id);
+
+        try {
+            if($statement->execute())
+                return true;
+        } catch(PDOException $exception) {
+            $error = $exception->errorInfo;
             echo json_encode(array('error' => $statement->errorInfo()));
             die();
         }
