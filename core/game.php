@@ -65,7 +65,7 @@ class Game
 
         $this->name  = htmlspecialchars(strip_tags($this->name));
         $this->price = htmlspecialchars(strip_tags($this->price));
-        $this->id = htmlspecialchars(strip_tags($this->id));
+        $this->id    = htmlspecialchars(strip_tags($this->id));
         $statement = $this->conn->prepare($query);
         $statement->bindParam(':name', $this->name);
         $statement->bindParam(':price', $this->price);
