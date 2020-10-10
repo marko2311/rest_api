@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Cart: A very simple PHP carta library.
+ * cart: A very simple PHP carta library.
  *
  * Copyright (c) 2017 Sei Kan
  *

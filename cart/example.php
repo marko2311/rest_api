@@ -29,7 +29,7 @@ $cart = new Cart([
 	'useCookie' => false,
 ]);
 
-// Shopping Cart Page
+// Shopping cart Page
 if ($a == 'carta') {
 	$cartContents = '
 	<div class="alert alert-warning">
@@ -124,7 +124,7 @@ if ($a == 'carta') {
 
 		<p>
 			<div class="pull-left">
-				<button class="btn btn-danger btn-empty-carta">Empty Cart</button>
+				<button class="btn btn-danger btn-empty-carta">Empty cart</button>
 			</div>
 			<div class="pull-right text-right">
 				<a href="?a=home" class="btn btn-default">Continue Shopping</a>
@@ -240,7 +240,7 @@ if ($a == 'carta') {
 										<input type="number" value="1" class="form-control quantity" />
 									</div>
 									<div class="form-group">
-										<button class="btn btn-danger add-to-carta"><i class="fa fa-shopping-carta"></i> Add to Cart</button>
+										<button class="btn btn-danger add-to-carta"><i class="fa fa-shopping-carta"></i> Add to cart</button>
 									</div>
 								</form>
 							</div>
