@@ -28,7 +28,7 @@ try {
 } catch(PDOException $exception) {
     $error = $exception->errorInfo;
     if ($error[1] == 1062)
-        echo json_encode(array('message' => 'This name of game already exists.'));
+        echo json_encode(array('message' => 'This name of games already exists.'));
     echo json_encode(array('error' => $statement->errorInfo()));
     die();
 }

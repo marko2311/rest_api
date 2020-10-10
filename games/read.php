@@ -2,6 +2,7 @@
 
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
+header('Access-Control-Allow-Methods: READ');
 
 include_once('../core/init.php');
 
@@ -31,5 +32,5 @@ if($num > 0){
     }
     echo json_encode($game_array);
 } else {
-    echo json_encode(array('message' => 'No game found'));
+    echo json_encode(array('message' => 'No games found'));
 }

@@ -11,7 +11,12 @@ $game = new Game($db);
 
 $data = json_decode(file_get_contents("php://input"));
 
-$game->id = $data->id;
+if(isset($data->id))
+    $game->id = $data->id;
+else {
+    echo json_encode(array('message' => 'id attribute is required!'));
+    die();
+}
 
 if($game->delete()){
     echo json_encode(array('message' => 'Game deleted'));

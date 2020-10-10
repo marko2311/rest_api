@@ -10,3 +10,4 @@ require_once(INCLUDE_PATH . DS . "config.php");
 
 //core classes
 require_once(CORE_PATH . DS . "game.php");
+require_once(CORE_PATH . DS . "cart" . DS . "class.Cart.php");

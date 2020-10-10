@@ -8,7 +8,7 @@ class Game
     private $table = "games_list";
     protected $game_id;
 
-    //game properties
+    //games properties
     public $id;
     public $name;
     public $price;
@@ -52,7 +52,7 @@ class Game
         } catch(PDOException $exception) {
             $error = $exception->errorInfo;
             if ($error[1] == 1062)
-                echo json_encode(array('message' => 'This name of game already exists.'));
+                echo json_encode(array('message' => 'This name of games already exists.'));
             echo json_encode(array('error' => $statement->errorInfo()));
             die();
         }
@@ -77,7 +77,7 @@ class Game
         } catch(PDOException $exception) {
             $error = $exception->errorInfo;
             if ($error[1] == 1062)
-                echo json_encode(array('message' => 'This name of game already exists.'));
+                echo json_encode(array('message' => 'This name of games already exists.'));
             echo json_encode(array('error' => $statement->errorInfo()));
             die();
         }
@@ -96,7 +96,7 @@ class Game
         } catch(PDOException $exception) {
             $error = $exception->errorInfo;
             echo json_encode(array('error' => $statement->errorInfo()));
-            die();
+            return false;
         }
     }
 
