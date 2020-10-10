@@ -17,6 +17,6 @@ $game->price = $data->price;
 if($game->create()){
     echo json_encode(array('message' => 'Game created'));
 } else {
-    echo json_encode(array('message' => 'Game didn`t create'));
+    echo json_encode(array('message' => 'Game didnt create'));
     exit;
 }

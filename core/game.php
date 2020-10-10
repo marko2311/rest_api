@@ -12,7 +12,7 @@ class Game
     public $id;
     public $name;
     public $price;
-    public $hide;
+//    public $hide;
 
     public function __construct(PDO $db, int $requested_id = 0)
     {
@@ -84,8 +84,7 @@ class Game
     }
 
     public function delete(){
-        $query = 'DELETE FROM '. $this->table .'                  
-                WHERE id=:id';
+        $query = 'DELETE FROM '. $this->table .' WHERE id=:id';
 
         $this->id = htmlspecialchars(strip_tags($this->id));
         $statement = $this->conn->prepare($query);
