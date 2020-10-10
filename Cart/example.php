@@ -17,26 +17,26 @@ $a = (isset($_GET['a'])) ? $_GET['a'] : 'home';
 
 require_once 'class.Cart.php';
 
-// Initialize cart object
+// Initialize carta object
 $cart = new Cart([
-	// Maximum item can added to cart, 0 = Unlimited
+	// Maximum item can added to carta, 0 = Unlimited
 	'cartMaxItem' => 0,
 
-	// Maximum quantity of a item can be added to cart, 0 = Unlimited
+	// Maximum quantity of a item can be added to carta, 0 = Unlimited
 	'itemMaxQuantity' => 5,
 
-	// Do not use cookie, cart items will gone after browser closed
+	// Do not use cookie, carta items will gone after browser closed
 	'useCookie' => false,
 ]);
 
 // Shopping Cart Page
-if ($a == 'cart') {
+if ($a == 'carta') {
 	$cartContents = '
 	<div class="alert alert-warning">
-		<i class="fa fa-info-circle"></i> There are no items in the cart.
+		<i class="fa fa-info-circle"></i> There are no items in the carta.
 	</div>';
 
-	// Empty the cart
+	// Empty the carta
 	if (isset($_POST['empty'])) {
 		$cart->clear();
 	}
@@ -124,7 +124,7 @@ if ($a == 'cart') {
 
 		<p>
 			<div class="pull-left">
-				<button class="btn btn-danger btn-empty-cart">Empty Cart</button>
+				<button class="btn btn-danger btn-empty-carta">Empty Cart</button>
 			</div>
 			<div class="pull-right text-right">
 				<a href="?a=home" class="btn btn-default">Continue Shopping</a>
@@ -174,7 +174,7 @@ if ($a == 'cart') {
 			</div>
 		</div>
 
-		<?php if ($a == 'cart'): ?>
+		<?php if ($a == 'carta'): ?>
 		<div class="container">
 			<h1>Shopping Cart</h1>
 
@@ -240,7 +240,7 @@ if ($a == 'cart') {
 										<input type="number" value="1" class="form-control quantity" />
 									</div>
 									<div class="form-group">
-										<button class="btn btn-danger add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+										<button class="btn btn-danger add-to-carta"><i class="fa fa-shopping-carta"></i> Add to Cart</button>
 									</div>
 								</form>
 							</div>
@@ -257,7 +257,7 @@ if ($a == 'cart') {
 
 		<script>
 			$(document).ready(function(){
-				$('.add-to-cart').on('click', function(e){
+				$('.add-to-carta').on('click', function(e){
 					e.preventDefault();
 
 					var $btn = $(this);
@@ -265,7 +265,7 @@ if ($a == 'cart') {
 					var color = $btn.parent().parent().find('.color').val() || '';
 					var qty = $btn.parent().parent().find('.quantity').val();
 
-					var $form = $('<form action="?a=cart" method="post" />').html('<input type="hidden" name="add" value=""><input type="hidden" name="id" value="' + id + '"><input type="hidden" name="color" value="' + color + '"><input type="hidden" name="qty" value="' + qty + '">');
+					var $form = $('<form action="?a=carta" method="post" />').html('<input type="hidden" name="add" value=""><input type="hidden" name="id" value="' + id + '"><input type="hidden" name="color" value="' + color + '"><input type="hidden" name="qty" value="' + qty + '">');
 
 					$('body').append($form);
 					$form.submit();
@@ -277,7 +277,7 @@ if ($a == 'cart') {
 					var qty = $btn.parent().parent().find('.quantity').val();
 					var color = $btn.attr('data-color');
 
-					var $form = $('<form action="?a=cart" method="post" />').html('<input type="hidden" name="update" value=""><input type="hidden" name="id" value="'+id+'"><input type="hidden" name="qty" value="'+qty+'"><input type="hidden" name="color" value="'+color+'">');
+					var $form = $('<form action="?a=carta" method="post" />').html('<input type="hidden" name="update" value=""><input type="hidden" name="id" value="'+id+'"><input type="hidden" name="qty" value="'+qty+'"><input type="hidden" name="color" value="'+color+'">');
 
 					$('body').append($form);
 					$form.submit();
@@ -288,14 +288,14 @@ if ($a == 'cart') {
 					var id = $btn.attr('data-id');
 					var color = $btn.attr('data-color');
 
-					var $form = $('<form action="?a=cart" method="post" />').html('<input type="hidden" name="remove" value=""><input type="hidden" name="id" value="'+id+'"><input type="hidden" name="color" value="'+color+'">');
+					var $form = $('<form action="?a=carta" method="post" />').html('<input type="hidden" name="remove" value=""><input type="hidden" name="id" value="'+id+'"><input type="hidden" name="color" value="'+color+'">');
 
 					$('body').append($form);
 					$form.submit();
 				});
 
-				$('.btn-empty-cart').on('click', function(){
-					var $form = $('<form action="?a=cart" method="post" />').html('<input type="hidden" name="empty" value="">');
+				$('.btn-empty-carta').on('click', function(){
+					var $form = $('<form action="?a=carta" method="post" />').html('<input type="hidden" name="empty" value="">');
 
 					$('body').append($form);
 					$form.submit();

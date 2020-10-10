@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Cart: A very simple PHP cart library.
+ * Cart: A very simple PHP carta library.
  *
  * Copyright (c) 2017 Sei Kan
  *
@@ -16,21 +16,21 @@
 class Cart
 {
 	/**
-	 * An unique ID for the cart.
+	 * An unique ID for the carta.
 	 *
 	 * @var string
 	 */
 	protected $cartId;
 
 	/**
-	 * Maximum item allowed in the cart.
+	 * Maximum item allowed in the carta.
 	 *
 	 * @var int
 	 */
 	protected $cartMaxItem = 0;
 
 	/**
-	 * Maximum quantity of a item allowed in the cart.
+	 * Maximum quantity of a item allowed in the carta.
 	 *
 	 * @var int
 	 */
@@ -44,14 +44,14 @@ class Cart
 	protected $useCookie = false;
 
 	/**
-	 * A collection of cart items.
+	 * A collection of carta items.
 	 *
 	 * @var array
 	 */
 	private $items = [];
 
 	/**
-	 * Initialize cart.
+	 * Initialize carta.
 	 *
 	 * @param array $options
 	 */
@@ -79,7 +79,7 @@ class Cart
 	}
 
 	/**
-	 * Get items in  cart.
+	 * Get items in  carta.
 	 *
 	 * @return array
 	 */
@@ -89,7 +89,7 @@ class Cart
 	}
 
 	/**
-	 * Check if the cart is empty.
+	 * Check if the carta is empty.
 	 *
 	 * @return bool
 	 */
@@ -99,7 +99,7 @@ class Cart
 	}
 
 	/**
-	 * Get the total of item in cart.
+	 * Get the total of item in carta.
 	 *
 	 * @return int
 	 */
@@ -117,7 +117,7 @@ class Cart
 	}
 
 	/**
-	 * Get the total of item quantity in cart.
+	 * Get the total of item quantity in carta.
 	 *
 	 * @return int
 	 */
@@ -135,7 +135,7 @@ class Cart
 	}
 
 	/**
-	 * Get the sum of a attribute from cart.
+	 * Get the sum of a attribute from carta.
 	 *
 	 * @param string $attribute
 	 *
@@ -157,7 +157,7 @@ class Cart
 	}
 
 	/**
-	 * Remove all items from cart.
+	 * Remove all items from carta.
 	 */
 	public function clear()
 	{
@@ -166,7 +166,7 @@ class Cart
 	}
 
 	/**
-	 * Check if a item exist in cart.
+	 * Check if a item exist in carta.
 	 *
 	 * @param string $id
 	 * @param array  $attributes
@@ -190,7 +190,7 @@ class Cart
 	}
 
 	/**
-	 * Add item to cart.
+	 * Add item to carta.
 	 *
 	 * @param string $id
 	 * @param int    $quantity
@@ -271,7 +271,7 @@ class Cart
 	}
 
 	/**
-	 * Remove item from cart.
+	 * Remove item from carta.
 	 *
 	 * @param string $id
 	 * @param array  $attributes
@@ -307,7 +307,7 @@ class Cart
 	}
 
 	/**
-	 * Destroy cart session.
+	 * Destroy carta session.
 	 */
 	public function destroy()
 	{
@@ -321,7 +321,7 @@ class Cart
 	}
 
 	/**
-	 * Read items from cart session.
+	 * Read items from carta session.
 	 */
 	private function read()
 	{
@@ -329,7 +329,7 @@ class Cart
 	}
 
 	/**
-	 * Write changes into cart session.
+	 * Write changes into carta session.
 	 */
 	private function write()
 	{

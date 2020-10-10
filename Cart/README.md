@@ -26,13 +26,13 @@ require_once 'class.Cart.php';
 
 // Initialize Cart object
 $cart = new Cart([
-  // Can add unlimited number of item to cart
+  // Can add unlimited number of item to carta
   'cartMaxItem'      => 0,
   
   // Set maximum quantity allowed per item to 99
   'itemMaxQuantity'  => 99,
   
-  // Do not use cookie, cart data will lost when browser is closed
+  // Do not use cookie, carta data will lost when browser is closed
   'useCookie'        => false,
 ]);
 ```
@@ -59,7 +59,7 @@ $cart->add('1003', 1, [
   'size'   => 'XS',
 ]);
 
-// Item with same ID but different attributes will added as separate item in cart
+// Item with same ID but different attributes will added as separate item in carta
 $cart->add('1003', 1, [
   'price'  => '5.99',
   'color'  => 'Red',
@@ -116,7 +116,7 @@ Gets a multi-dimensional array of items stored in cart.
 > **array** \$cart->getItems( );
 
 ```php
-// Get all items in the cart
+// Get all items in the carta
 $allItems = $cart->getItems();
 
 foreach ($allItems as $items) {
@@ -153,7 +153,7 @@ Gets the total of items in the cart.
 > **int** \$cart->getTotaltem( );
 
 ```php
-echo 'There are '.$cart->getTotalItem().' items in the cart.';
+echo 'There are '.$cart->getTotalItem().' items in the carta.';
 ```
 
 
@@ -214,7 +214,7 @@ Checks if an item exists in cart.
 
 ```php
 if ($cart->isItemExists('1001')) {
-  echo 'This item already added to cart.';
+  echo 'This item already added to carta.';
 }
 ```
 
