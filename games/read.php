@@ -7,12 +7,10 @@ header('Access-Control-Allow-Methods: READ');
 include_once('../core/init.php');
 
 $requested_id = isset($_GET['id']) ? $_GET['id'] : 0;
-$game = new Game($db, $requested_id);
+$game         = new Game($db, $requested_id);
 
 $result = $game->read();
-$num = $result->rowCount();
-// number of pages
-$pages = ceil($num / 3);
+$num    = $result->rowCount();
 
 if($num > 0){
     $game_array = array();

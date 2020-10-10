@@ -7,8 +7,6 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 
 include_once('../core/init.php');
 
-session_start();
-
 $cart = new Cart(array(
     'cartMaxItem'      => 3,
     'itemMaxQuantity'  => 10,

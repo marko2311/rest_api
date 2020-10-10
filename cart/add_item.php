@@ -11,11 +11,24 @@ if(isset($_SESSION['cart'])){
     $cart = unserialize($_SESSION['cart']);
 
     $data = json_decode(file_get_contents("php://input"));
-    $cart->add($data->id, $data->quantity);
+
+    $query = "SELECT name, price FROM games_list WHERE id = " . $data->id . ";";
+    $statement = $db->prepare($query);
+    if(!$statement->execute()){
+        echo json_encode(array("message" => 'Error with getting game info'));
+        return false;
+    }
+    $record = $statement->fetch(PDO::FETCH_ASSOC);
+    if(count($record) == 0){
+        echo json_encode(array("message" => 'Cannot find requested game'));
+        return false;
+    }
+    extract($record);
+    $cart->add($data->id, $data->quantity, array("name" => $name, "price" => $price));
 
     $_SESSION['cart']= serialize($cart);
 
-    echo json_encode(array("message" => "Item added!"));
+    echo json_encode(array("message" => "Game added!"));
     return true;
 }
 echo json_encode(array("message" => "There is no active cart"));
