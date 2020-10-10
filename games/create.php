@@ -11,7 +11,7 @@ $game = new Game($db);
 
 $data = json_decode(file_get_contents("php://input"));
 
-$game->name = $data->name;
+$game->name  = $data->name;
 $game->price = $data->price;
 
 if($game->create()){
