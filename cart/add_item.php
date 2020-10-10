@@ -19,7 +19,7 @@ if(isset($_SESSION['cart'])){
         return false;
     }
     $record = $statement->fetch(PDO::FETCH_ASSOC);
-    if(count($record) == 0){
+    if(empty($record)){
         echo json_encode(array("message" => 'Cannot find requested game'));
         return false;
     }
