@@ -21,7 +21,7 @@ Aby API działało poprawnie, po sklonowaniu repozytorium nalezy wykonac nastepu
   <b>DELETE /games/{id}</b><br /><br />
   
   
-  Aby zaktualizowac nazwe i/lub cene gry, nalezy uzyc zadania
+  Aby zaktualizowac nazwe i/lub cene gry, nalezy uzyc zadania<br />
   <b>PUT /games/{id}</b><br />
   body request musi zawierac atrybut/y ktore chcemy aktualizowac np.({"name": "Fable 2"})<br /><br />
   
