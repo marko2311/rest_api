@@ -5,8 +5,8 @@ Aby API działało poprawnie, po pobraniu nalezy wykonac nastepujace czynnosci:
   - za pomoca composera, zainstalowac zasoby ktore znajduja sie w pliku composer.json
   - skonfigurowac plik .env tak aby zgadzal sie z naszymi lokalnymi ustawieniami
   - uruchomic skrypt dbseed.php
-  - aby przetestowac dzialanie API np w Postmanie, tam gdzie znajduja sie pliki naszego API wpisujemy komende 
-    php -S 127.0.0.1:8000 -t public
+  - aby przetestowac dzialanie API np w Postmanie, tam gdzie znajduja sie pliki naszego API wpisujemy komende <br />
+    <b>php -S 127.0.0.1:8000 -t public</b><br /><br />
 
 
 ---------- OBSŁUGA TABELI GIER ------------
@@ -25,9 +25,8 @@ Aby API działało poprawnie, po pobraniu nalezy wykonac nastepujace czynnosci:
   
   Aby zaktualizowac nazwe i/lub cene gry, nalezy uzyc zadania
   
-  PUT /games/{id}
-  
-  body request musi zawierac atrybut/y ktore chcemy aktualizowac np.({"name": "Fable 2"})
+  <b>PUT /games/{id}</b><br />
+  body request musi zawierac atrybut/y ktore chcemy aktualizowac np.({"name": "Fable 2"})<br /><br />
   
   
   Aby pobrac cala tabele gier, razem z podzialem na strony, nalezy uzyc zadania
