@@ -1,12 +1,14 @@
 <?php
 
+namespace Api\TableGateways;
+
 class gameGateway
 {
     //db config
     private $db;
-    private $table = "games";
+    private $table = "games_list";
 
-    public function __construct(PDO $db)
+    public function __construct($db)
     {
         $this->db = $db;
     }
@@ -60,32 +62,43 @@ class gameGateway
         try {
             $statement = $this->db->prepare($query);
             $statement->execute(array(
-                'name' => $input['name'],
-                'price'  => $input['price']
+                'name'  => $input['name'],
+                'price' => $input['price']
             ));
             return $statement->rowCount();
         } catch (\PDOException $e) {
-            exit($e->getMessage());
+            die($e->getMessage());
         }
     }
 
     public function update($id, Array $input)
     {
+        $exec_array = array(
+            'id' => (int) $id
+        );
+        $query_name = "";
+        if(isset($input['name'])){
+            $exec_array['name'] = $input['name'];
+            $query_name = "name = :name";
+        }
+        $query_price = "";
+        if(isset($input['price'])){
+            $exec_array['price'] = $input['price'];
+            $query_price = "price = :price";
+        }
+        $comma = (!isset($input['name']) || !isset($input['name'])) ? "" : ", ";
+
         $query = "
             UPDATE " . $this->table . "
             SET 
-                name = :name,
-                price  = :price
+                $query_name$comma
+                $query_price
             WHERE id = :id;
         ";
 
         try {
             $statement = $this->db->prepare($query);
-            $statement->execute(array(
-                'id' => (int) $id,
-                'name' => $input['name'],
-                'price'  => $input['price']
-            ));
+            $statement->execute($exec_array);
             return $statement->rowCount();
         } catch (\PDOException $e) {
             exit($e->getMessage());

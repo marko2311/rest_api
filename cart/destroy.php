@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: PURGE');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Authorization, X-Requested-With');
 
-include_once('../core/init.php');
+include_once('../core/bootstrap.php');
 
 if(isset($_SESSION['cart'])){
 
