@@ -14,7 +14,7 @@ Aby API działało poprawnie, po pobraniu nalezy wykonac nastepujace czynnosci:
   
   Aby dodac nowa gre, nalezy uzyc zadania
   
-  POST /games
+  <b>POST /games</b>
   
   body requesta musi zawierac atrybuty: name, price np. ({"price": 9.99, "name": "Fable II"})
   
