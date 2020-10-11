@@ -7,9 +7,9 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 
 include_once('../core/bootstrap.php');
 
-if(isset($_SESSION['cart'])){
+if(isset($_SESSION['CartRepo'])){
 
-    $cart = unserialize($_SESSION['cart']);
+    $cart = unserialize($_SESSION['CartRepo']);
 
     if($cart->isEmpty()){
         echo json_encode(array("message" => "Cart is empty!"));
@@ -22,6 +22,6 @@ if(isset($_SESSION['cart'])){
     echo json_encode($result);
     return true;
 }
-echo json_encode(array("message" => "First create cart!"));
+echo json_encode(array("message" => "First create CartRepo!"));
 return false;
 

@@ -12,5 +12,5 @@ $cart = new Cart(array(
     'itemMaxQuantity'  => 10,
     'useCookie'        => false
 ));
-$_SESSION['cart'] = serialize($cart);
+$_SESSION['CartRepo'] = serialize($cart);
 echo json_encode(array("message" => "Cart created!"));

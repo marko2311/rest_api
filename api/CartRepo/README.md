@@ -21,10 +21,10 @@ This is a very simple PHP cart library. Cart data can either be saved in PHP ses
 
 
 ```php
-// Include core cart library
-require_once 'class.cart.php';
+// Include core CartRepo library
+require_once 'class.CartRepo.php';
 
-// Initialize cart object
+// Initialize CartRepo object
 $cart = new Cart([
   // Can add unlimited number of item to carta
   'cartMaxItem'      => 0,

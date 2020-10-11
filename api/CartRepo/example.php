@@ -15,7 +15,7 @@ $colors = [
 // Page
 $a = (isset($_GET['a'])) ? $_GET['a'] : 'home';
 
-require_once 'class.Cart.php';
+require_once 'Cart.php';
 
 // Initialize carta object
 $cart = new Cart([
@@ -29,7 +29,7 @@ $cart = new Cart([
 	'useCookie' => false,
 ]);
 
-// Shopping cart Page
+// Shopping CartRepo Page
 if ($a == 'carta') {
 	$cartContents = '
 	<div class="alert alert-warning">
@@ -124,7 +124,7 @@ if ($a == 'carta') {
 
 		<p>
 			<div class="pull-left">
-				<button class="btn btn-danger btn-empty-carta">Empty cart</button>
+				<button class="btn btn-danger btn-empty-carta">Empty CartRepo</button>
 			</div>
 			<div class="pull-right text-right">
 				<a href="?a=home" class="btn btn-default">Continue Shopping</a>
@@ -240,7 +240,7 @@ if ($a == 'carta') {
 										<input type="number" value="1" class="form-control quantity" />
 									</div>
 									<div class="form-group">
-										<button class="btn btn-danger add-to-carta"><i class="fa fa-shopping-carta"></i> Add to cart</button>
+										<button class="btn btn-danger add-to-carta"><i class="fa fa-shopping-carta"></i> Add to CartRepo</button>
 									</div>
 								</form>
 							</div>

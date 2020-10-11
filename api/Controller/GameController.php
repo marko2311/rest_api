@@ -20,7 +20,7 @@ class GameController {
         $this->gameGateway = new GameGateway($db);
     }
 
-    public function processRequest()
+    public function processRequest(bool $returnAsArray = false)
     {
         switch ($this->requestMethod) {
             case 'GET':
@@ -46,7 +46,11 @@ class GameController {
         header($response['status_code_header']);
         if ($response['body']) {
             echo $response['body'];
+            if($returnAsArray){
+                return $response['body'];
+            }
         }
+
     }
 
     private function getAllGames()
@@ -69,7 +73,7 @@ class GameController {
     private function getGame($id)
     {
         $result = $this->gameGateway->find($id);
-        if (! $result) {
+        if (!$result) {
             return $this->notFoundResponse();
         }
         $response['status_code_header'] = 'HTTP/1.1 200 OK';

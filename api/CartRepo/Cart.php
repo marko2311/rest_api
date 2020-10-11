@@ -1,7 +1,9 @@
 <?php
 
+namespace Api\CartRepo;
+
 /**
- * cart: A very simple PHP carta library.
+ * CartRepo: A very simple PHP carta library.
  *
  * Copyright (c) 2017 Sei Kan
  *

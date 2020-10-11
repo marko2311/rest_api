@@ -3,6 +3,7 @@
 require "..\bootstrap.php";
 
 use Api\Controller\GameController;
+use Api\Controller\CartController;
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -13,8 +14,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = explode('/', $uri);
 
-if ($uri[1] !== 'games') {
-    echo 'error z żadaniem 1';
+if ($uri[1] !== 'games' && $uri[1] !== 'cart') {
     header("HTTP/1.1 404 Not Found");
     exit();
 }
@@ -25,5 +25,16 @@ if (isset($uri[2])) {
 }
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
-$controller = new GameController($dbConnection, $requestMethod, $gameId);
+switch($uri[1]){
+    case "games":
+        $controller = new GameController($dbConnection, $requestMethod, $gameId);
+        break;
+    case "cart":
+        $controller = new CartController($dbConnection, $requestMethod, $gameId);
+        break;
+}
 $controller->processRequest();
+
+
+
+

@@ -2,7 +2,7 @@
 
 namespace Api\TableGateways;
 
-class gameGateway
+class GameGateway
 {
     //db config
     private $db;

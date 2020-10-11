@@ -7,12 +7,12 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 
 include_once('../core/bootstrap.php');
 
-if(isset($_SESSION['cart'])){
+if(isset($_SESSION['CartRepo'])){
 
-    unset($_SESSION['cart']);
+    unset($_SESSION['CartRepo']);
 
     echo json_encode(array("message" => "Cart destroyed!"));
     return true;
 }
-echo json_encode(array("message" => "First create cart!"));
+echo json_encode(array("message" => "First create CartRepo!"));
 return false;

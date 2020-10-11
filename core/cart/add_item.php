@@ -7,8 +7,8 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 
 include_once('../core/bootstrap.php');
 
-if(isset($_SESSION['cart'])){
-    $cart = unserialize($_SESSION['cart']);
+if(isset($_SESSION['CartRepo'])){
+    $cart = unserialize($_SESSION['CartRepo']);
 
     $data = json_decode(file_get_contents("php://input"));
 
@@ -26,11 +26,11 @@ if(isset($_SESSION['cart'])){
     extract($record);
     $cart->add($data->id, $data->quantity, array("name" => $name, "price" => $price));
 
-    $_SESSION['cart']= serialize($cart);
+    $_SESSION['CartRepo']= serialize($cart);
 
     echo json_encode(array("message" => "Game added!"));
     return true;
 }
-echo json_encode(array("message" => "There is no active cart"));
+echo json_encode(array("message" => "There is no active CartRepo"));
 return false;
 
