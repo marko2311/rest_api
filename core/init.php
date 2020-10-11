@@ -10,7 +10,7 @@ if (!session_id()) {
 }
 
 //load config
-require_once(INCLUDE_PATH . DS . "config.php");
+require_once(INCLUDE_PATH . DS . "DatabaseConnector.php");
 
 //core classes
 require_once(CORE_PATH . DS . "game.php");
