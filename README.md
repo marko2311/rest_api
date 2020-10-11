@@ -22,24 +22,21 @@ Aby API działało poprawnie, po sklonowaniu repozytorium nalezy wykonac nastepu
   
   
   Aby zaktualizowac nazwe i/lub cene gry, nalezy uzyc zadania
-  
   <b>PUT /games/{id}</b><br />
   body request musi zawierac atrybut/y ktore chcemy aktualizowac np.({"name": "Fable 2"})<br /><br />
   
   
   Aby pobrac cala tabele gier, razem z podzialem na strony, nalezy uzyc zadania<br />
-  
   <b>GET  /games</b><br /><br />
   
   
   Aby pobrac pojedyncza gre, nalezy uzyc zadania<br />
-  
   <b>GET /games/{id}</b><br /><br />
   
   
 ---------- OBSŁUGA CARTA ------------<br /><br />
 
-  Przy stworzeniu carta, autmatycznie zostaja narzucone zasady tzn.:
+ Przy stworzeniu carta, autmatycznie zostaja narzucone zasady tzn.:
     - max 3 rozne przedmioty
     - max ilosc kazdego przedmiotu to 10<br /><br />
   
