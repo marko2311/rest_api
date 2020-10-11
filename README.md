@@ -37,8 +37,8 @@ Aby API działało poprawnie, po sklonowaniu repozytorium nalezy wykonac nastepu
 ---------- OBSŁUGA CARTA ------------<br /><br />
 
 Przy stworzeniu carta, autmatycznie zostaja narzucone zasady:
-    - max 3 rozne przedmioty
-    - max ilosc kazdego przedmiotu to 10<br /><br />
+  - max 3 rozne przedmioty
+  - max ilosc kazdego przedmiotu to 10<br /><br />
   
   Aby stworzyc carta, nalezy uzyc zadania<br />
   <b>POST /cart</b><br /><br />
