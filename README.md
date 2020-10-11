@@ -39,20 +39,20 @@ Aby API działało poprawnie, po sklonowaniu repozytorium nalezy wykonac nastepu
   
 ---------- OBSŁUGA CARTA ------------<br /><br />
 
-  Przy stworzeniu carta, autmatycznie zostaja narzucone zasady tzn.
-    -max 3 rozne przedmioty
-    -max ilosc kazdego przedmiotu to 10<br /><br />
+  Przy stworzeniu carta, autmatycznie zostaja narzucone zasady tzn.:
+    - max 3 rozne przedmioty
+    - max ilosc kazdego przedmiotu to 10<br /><br />
   
   Aby stworzyc carta, nalezy uzyc zadania<br />
-  POST /cart
+  <b>POST /cart</b><br /><br />
   
-  Aby dodac gre do carta, nalezy uzyc zadania
-  PUT /cart/{id}
+  Aby dodac gre do carta, nalezy uzyc zadania<br />
+  <b>PUT /cart/{id}</b><br /><br />
   
-  Aby usunac gre z carta, nalezy uzyc zadania
-  DELETE /cart/{id}
+  Aby usunac gre z carta, nalezy uzyc zadania<br />
+  <b>DELETE /cart/{id}</b><br /><br />
   
-  Aby wyswietlic zawartosc carta razem z cena calkowita, nalezy uzyc zadania
-  GET /cart
+  Aby wyswietlic zawartosc carta razem z cena calkowita, nalezy uzyc zadania<br />
+  <b>GET /cart</b><br /><br />
   
     
