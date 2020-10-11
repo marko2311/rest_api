@@ -34,7 +34,13 @@ class CartGateway
 
     public function getItemsOfCart()
     {
+        if(!isset($_SESSION['cart'])){
+            exit("First create cart!");
+        }
         $cart = unserialize($_SESSION['cart']);
+        if($cart->isEmpty()){
+            exit("Cart is empty!");
+        }
         $result = $cart->getItems();
         $result['total_price'] = number_format($cart->getAttributeTotal('price'), 2, '.', ',');
         return $result;
