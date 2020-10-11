@@ -14,14 +14,13 @@ Aby API działało poprawnie, po pobraniu nalezy wykonac nastepujace czynnosci:
   
   Aby dodac nowa gre, nalezy uzyc zadania
   
-  <b>POST /games</b>
-  
-  body requesta musi zawierac atrybuty: name, price np. ({"price": 9.99, "name": "Fable II"})
+  <b>POST /games</b><br />
+  body requesta musi zawierac atrybuty: name, price np. ({"price": 9.99, "name": "Fable II"})<br /><br />
   
   
   Aby usunac gre, nalezy uzyc zadania
   
-  DELETE /games/{id}
+  <b>DELETE /games/{id}</b><br /><br />
   
   
   Aby zaktualizowac nazwe i/lub cene gry, nalezy uzyc zadania
