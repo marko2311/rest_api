@@ -13,20 +13,18 @@ class GameTest extends PHPUnit_Framework_TestCase
         ]);
     }
 
-    public function testGet_ValidInput_GameObject()
+    public function testPost_NewGame()
     {
-        $response = $this->client->get('/games', [
-            'query' => [
-                'id' => '1'
+        $gameId = uniqid();
+
+        $response = $this->client->post('/games', [
+            'json' => [
+                'name'      => 'Test game 2',
+                'price'     => 2.22
             ]
         ]);
 
-        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals(201, $response->getStatusCode());
 
-        $data = json_decode($response->getBody(), true);
-
-        $this->assertArrayHasKey('id', $data);
-        $this->assertArrayHasKey('name', $data);
-        $this->assertArrayHasKey('price', $data);
     }
 }
